@@ -1,6 +1,5 @@
-```
-git clone https://github.com/jay3dec/AngularJS_Firebase_Part1.git
-cd AngularJS_Firebase_Part1
 npm install
 npm start
-```
+
+# angularwebapp
+Repo for tutorial tryout: http://code.tutsplus.com/series/creating-a-web-app-from-scratch-using-angularjs-and-firebase--cms-717
