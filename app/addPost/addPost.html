@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add New Post</title>
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="blog.css" rel="stylesheet">
+</head>
+<body ng-controller="AddPostCtrl">
+	<div class="blog-masthead">
+		<div class="container">
+			<nav class="blog-nav">
+				<a href="" class="blog-nav-item">Home</a>
+				<a href="" class="blog-nav-item active">Add Post</a>
+			</nav>
+		</div>
+	</div>
+	<div class="container">
+		<form class="form-horizontal" ng-submit="AddPost()">
+			<fieldset>
+				<!-- Form Name -->
+				<legend>Create Post</legend>
+
+				<!-- Text Input -->
+				<div class="form-group">
+					<label for="txtTitle" class="col-md-4 control-label">Title</label>
+					<div class="col-md-4">
+						<input id="txtTitle" ng-model="article.title" name="txtTitle" type="text" placeholder="placeholder" class="form-control input-md">
+					</div>
+				</div>
+
+				<!-- Textarea -->
+				<div class="form-group">
+					<label for="txtPost" class="col-md-4 control-label">Post</label>
+					<div class="col-md-4">
+						<textarea class="form-control" ng-model="article.post" id="txtPost" name="txtPost"></textarea>
+					</div>
+				</div>
+
+				<!-- Button -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="singlebutton"></label>
+					<div class="col-md-4">
+						<input id="singlebutton" name="singlebutton" class="btn btn-primary" type="submit" value="Publish"ng-disabled="!article.title || !article.post" />
+					</div>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="blog-footer">
+		<p>AngularJS &amp; Firebase Blog App</p>
+	</div>
+</body>
+</html>

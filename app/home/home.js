@@ -25,7 +25,6 @@ angular.module('myApp.home', ['ngRoute','firebase'])
             .then(function(user) {
                 //Success callback
                 console.log('Authentication successful');
-                console.log(user);
                 CommonProp.setUser(user.password.email);
                 CommonProp.setUserImg(user.password.profileImageURL);
                 $location.path('/welcome');
