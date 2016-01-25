@@ -11,7 +11,7 @@ angular.module('myApp.addPost', ['ngRoute'])
 }])
 
 // Controller
-.controller('AddPostCtrl', ['$scope', '$firebase', function ($scope, $firebase) {
+.controller('AddPostCtrl', ['$scope', '$firebase', '$location', 'CommonProp', function ($scope, $firebase, $location, CommonProp) {
 
 	// Post above data to Firebse
 	$scope.AddPost = function() {
@@ -20,14 +20,16 @@ angular.module('myApp.addPost', ['ngRoute'])
 		var post = $scope.article.post;
 
 		// Create Firebase Instances
-		var firebaseObj = new Firebase('https://amber-heat-9968.firebaseio.com');
+		var firebaseObj = new Firebase('https://amber-heat-9968.firebaseio.com/articles');
 		var fb = $firebase(firebaseObj);
 
 		fb.$push({
 			title: title,
-			post: post
+			post: post,
+			emailID: CommonProp.getUser()
 		}).then(function(ref) {
 			console.log(ref);
+			$location.path('/welcome');
 		}, function(error) {
 			console.log("Error: ", error);
 		});

@@ -17,7 +17,7 @@
       <div class="jumbotron" style="padding-bottom:0px;">
         <h2>AngularJS &amp; Firebase App!</h2>
       </div>
-      <form class="form-signin" name="signinForm">
+      <form class="form-signin" name="signinForm" ng-submit="SignIn($event)">
         <div class="form-group" ng-class="{'has-error' : signinForm.email.$invalid}">
           <input ng-model="user.email" name="email" type="email" class="form-control" placeholder="Email address" required="" autofocus="">
           <p class="help-bock" ng-show="signinForm.email.$invalid">Please enter a valid e-mail</p>

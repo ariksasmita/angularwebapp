@@ -12,7 +12,12 @@ angular.module('myApp.welcome', ['ngRoute'])
 }])
 
 // Controller
-.controller('WelcomeCtrl', ['$scope', 'CommonProp', function ($scope, CommonProp) {
+.controller('WelcomeCtrl', ['$scope', '$firebase', 'CommonProp', function ($scope, $firebase, CommonProp) {
 	$scope.username = CommonProp.getUser();
-	$scope.userimage = CommonProp.getUserImg();
+	// $scope.userimage = CommonProp.getUserImg();
+
+	var firebaseObj = new Firebase('https://amber-heat-9968.firebaseio.com/articles');
+	var sync = $firebase(firebaseObj);
+	$scope.articles = sync.$asArray();
+
 }]);
